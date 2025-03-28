@@ -1,12 +1,20 @@
 body {
-    background-color: #fefefe;
-    color: #222;
+    background-image: url('伊布花園.png'); /* 替换成您的背景图片文件名 */
+    background-size: cover; /* 图片会覆盖整个页面 */
+    background-position: center; /* 图片居中显示 */
+    background-attachment: fixed; /* 背景图片固定，不随页面滚动 */
+    background-repeat: no-repeat; /* 图片不重复 */
+    color: #000; /* 改为黑色文字 */
     font-family: sans-serif;
     padding: 40px;
     text-align: center;
-  }
-  
-  button {
+    min-height: 100vh; /* 确保背景覆盖整个视口高度 */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8); /* 添加文字阴影，使文字更清晰 */
+    position: relative; /* 为固定定位的按钮提供参考 */
+    padding-bottom: 100px; /* 为底部按钮留出空间 */
+}
+
+button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #4CAF50;
@@ -14,9 +22,256 @@ body {
     border: none;
     cursor: pointer;
     border-radius: 4px;
-  }
-  
-  button:hover {
+}
+
+button:hover {
     background-color: #45a049;
-  }
+}
+
+/* 留言板样式 */
+.comment-section {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    width: 300px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.9); /* 稍微透明的背景 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: left;
+}
+
+.comment-section h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.comment-section input,
+.comment-section textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.comment-section textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+#comments {
+    margin-top: 20px;
+}
+
+#comments p {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    margin: 0;
+    word-wrap: break-word;
+}
+
+/* 主内容区域样式 */
+.main-content {
+    margin-right: 340px; /* 为右侧留言板留出空间 */
+    text-align: left; /* 改为左对齐 */
+    padding: 20px;
+    position: relative;
+    margin-top: 20px; /* 减小顶部边距 */
+    margin-left: 20px; /* 添加左侧边距 */
+    max-width: 600px; /* 限制最大宽度 */
+}
+
+/* 移除文字背景，只保留间距 */
+.main-content h1,
+.main-content p {
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 5px 0;
+}
+
+/* 标题特殊样式 */
+.main-content h1 {
+    font-family: "Ma Shan Zheng", cursive; /* 使用相同的字体 */
+    color: #000000; /* 纯黑色 */
+    font-size: 5.5em;
+    text-shadow: 
+        2px 2px 0 #fff,
+        -2px -2px 0 #fff,
+        2px -2px 0 #fff,
+        -2px 2px 0 #fff,
+        4px 4px 8px rgba(0, 0, 0, 0.3); /* 添加多重阴影效果 */
+    margin: 0;
+    text-align: left;
+    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    line-height: 1.4;
+    padding-left: 0;
+    font-weight: normal;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+    animation: float 3s ease-in-out infinite; /* 添加浮动动画 */
+    position: relative;
+}
+
+/* 为标题添加星空效果 */
+.main-content h1::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #000033, #000066, #0000ff, #000033);
+    z-index: -1;
+    background-size: 200% 200%;
+    border-radius: 10px;
+    filter: blur(8px);
+    animation: starry 3s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.main-content h1:hover {
+    transform: scale(1.05);
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #0000ff,
+        0 0 30px #0000ff,
+        0 0 40px #0000ff;
+}
+
+.main-content h1:hover::before {
+    opacity: 1;
+}
+
+/* 段落文字特殊样式 */
+.main-content p {
+    font-family: "Ma Shan Zheng", cursive; /* 使用更有特色的字体 */
+    color: #000000; /* 黑色 */
+    font-size: 4em; /* 保持大小 */
+    text-shadow: 
+        2px 2px 0 #fff,
+        -2px -2px 0 #fff,
+        2px -2px 0 #fff,
+        -2px 2px 0 #fff,
+        4px 4px 8px rgba(0, 0, 0, 0.3); /* 添加多重阴影效果 */
+    margin: 15px 0;
+    transition: all 0.3s ease;
+    line-height: 1.4;
+    animation: float 3s ease-in-out infinite; /* 添加浮动动画 */
+    position: relative;
+}
+
+/* 为段落添加星空效果 */
+.main-content p::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #000033, #000066, #0000ff, #000033);
+    z-index: -1;
+    background-size: 200% 200%;
+    border-radius: 10px;
+    filter: blur(8px);
+    animation: starry 3s ease-in-out infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* 星空动画 */
+@keyframes starry {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 悬停效果 */
+.main-content h1:hover,
+.main-content p:hover {
+    transform: scale(1.05);
+    color: #ffffff;
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #0000ff,
+        0 0 30px #0000ff,
+        0 0 40px #0000ff;
+}
+
+.main-content h1:hover::before,
+.main-content p:hover::before {
+    opacity: 1;
+}
+
+/* 添加浮动动画 */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* 按钮样式 */
+#btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%; /* 改为水平居中 */
+    transform: translateX(-50%); /* 使用 transform 实现精确居中 */
+    padding: 15px 40px;
+    font-size: 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+#btn:hover {
+    background-color: #45a049;
+    transform: translateX(-50%) scale(1.05); /* 保持居中并添加缩放效果 */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+/* 图片容器样式 */
+.image-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    padding-left: 0; /* 移除左边距 */
+}
+
+.image-container img {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0; /* 移除自动边距 */
+    max-width: 100%;
+}
+
+.image-container img:hover {
+    transform: scale(1.05); /* 悬停时稍微放大 */
+}
   

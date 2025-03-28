@@ -2,17 +2,59 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>伊布的地盤</title>
+  <title>伊布的網站</title>
+  <!-- 添加 Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&family=ZCOOL+KuaiLe&family=Ma+Shan+Zheng&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- 添加 Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
 </head>
 <body>
-    <img src="伊布櫻花.jpg" alt="伊布" width="300">
-  <h1>伊布的地盤
-  </h1>
-  <p>我是伊布</p>
-  <p>我喜歡玩。</p>
-  <button id="btn">來看看我去哪裡玩</button>
+  <!-- 主内容区域 -->
+  <div class="main-content">
+    <h1>伊布的基地</h1>
+    <div class="image-container">
+      <img src="伊布櫻花.jpg" alt="伊布" width="300">
+    </div>
+    <p>我是伊布</p>
+    <p>我喜歡玩。</p>
+    <button id="btn">來看看我去哪里玩</button>
+    <img id="myImage" style="display: none; max-width: 100%; margin-top: 20px;">
+  </div>
 
+  <!-- 留言區 -->
+  <div class="comment-section">
+    <h2>留言板</h2>
+    <div>
+      <input type="text" id="name" placeholder="你的名字">
+      <textarea id="message" placeholder="你的留言" rows="4"></textarea>
+      <button onclick="addComment()">送出留言</button>
+    </div>
+    <hr>
+    <div id="comments"></div>
+  </div>
+
+  <script>
+    // Firebase 配置
+    const firebaseConfig = {
+      apiKey: "AIzaSyA7_fYaVLt86d7mQKorOWEL64tRaYnD3nk",
+      authDomain: "eevee-comment-board.firebaseapp.com",
+      databaseURL: "https://eevee-comment-board-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "eevee-comment-board",
+      storageBucket: "eevee-comment-board.firebasestorage.app",
+      messagingSenderId: "727592715874",
+      appId: "1:727592715874:web:2bd9e18df89fc83d37333b"
+    };
+
+    // 初始化 Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
+
+  <!-- 🟦 你原本的 script.js 要在最後 -->
   <script src="script.js"></script>
+
 </body>
 </html>
+
