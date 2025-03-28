@@ -95,9 +95,9 @@ button:hover {
 
 /* 标题特殊样式 */
 .main-content h1 {
-    font-family: "Ma Shan Zheng", cursive; /* 使用相同的字体 */
+    font-family: "Press Start 2P", cursive; /* 使用像素风格字体 */
     color: #000000; /* 纯黑色 */
-    font-size: 5.5em;
+    font-size: 4em;
     text-shadow: 
         2px 2px 0 #fff,
         -2px -2px 0 #fff,
@@ -110,7 +110,7 @@ button:hover {
     letter-spacing: 2px;
     line-height: 1.4;
     padding-left: 0;
-    font-weight: normal;
+    font-weight: 900; /* 增加字体粗细 */
     -webkit-font-smoothing: none;
     -moz-osx-font-smoothing: none;
     animation: float 3s ease-in-out infinite; /* 添加浮动动画 */
@@ -152,7 +152,7 @@ button:hover {
 
 /* 段落文字特殊样式 */
 .main-content p {
-    font-family: "Ma Shan Zheng", cursive; /* 使用更有特色的字体 */
+    font-family: "Noto Sans TC", sans-serif; /* 使用 Noto Sans TC 字体 */
     color: #000000; /* 黑色 */
     font-size: 4em; /* 保持大小 */
     text-shadow: 
@@ -166,6 +166,7 @@ button:hover {
     line-height: 1.4;
     animation: float 3s ease-in-out infinite; /* 添加浮动动画 */
     position: relative;
+    font-weight: 700; /* 加粗字体 */
 }
 
 /* 为段落添加星空效果 */

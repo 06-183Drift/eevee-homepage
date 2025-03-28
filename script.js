@@ -42,10 +42,24 @@ db.ref("messages").on("value", (snapshot) => {
 // 获取按钮和图片元素
 const btn = document.getElementById('btn');
 const img = document.getElementById('myImage');
+const bgMusic = document.getElementById('bgMusic');
+
+// 设置最大音量
+bgMusic.volume = 1.0; // 1.0 是最大音量
+
+// 添加音乐加载事件监听
+bgMusic.addEventListener('loadeddata', function() {
+    console.log('音乐文件已加载');
+});
+
+bgMusic.addEventListener('error', function(e) {
+    console.error('音乐加载错误:', e);
+});
 
 // 检查元素是否正确获取
 console.log('按钮元素:', btn);
 console.log('图片元素:', img);
+console.log('音乐元素:', bgMusic);
 
 // 添加点击事件监听器
 btn.addEventListener('click', function() {
@@ -75,6 +89,9 @@ btn.addEventListener('click', function() {
         document.body.style.backgroundPosition = 'center';
         document.body.style.backgroundAttachment = 'fixed';
         document.body.style.backgroundRepeat = 'no-repeat';
+        
+        // 播放背景音乐
+        bgMusic.play();
         
         // 隐藏按钮
         btn.style.display = 'none';
@@ -141,6 +158,10 @@ btn.addEventListener('click', function() {
                 
                 // 恢复原始背景
                 document.body.style.backgroundImage = '';
+                
+                // 停止背景音乐
+                bgMusic.pause();
+                bgMusic.currentTime = 0;
                 
                 // 显示原始按钮
                 btn.style.display = 'block';
