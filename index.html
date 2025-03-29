@@ -15,14 +15,19 @@
   <audio id="bgMusic" loop>
     <source src="喵喵.mp3" type="audio/mpeg">
   </audio>
+  <!-- 添加动画容器 -->
+  <div id="animation-container"></div>
   <!-- 主内容区域 -->
   <div class="main-content">
     <h1>伊布的基地</h1>
     <div class="image-container">
-      <img src="伊布櫻花.jpg" alt="伊布" width="300">
+      <img src="伊布櫻花.jpg" alt="伊布櫻花" width="300">
+      <div class="image-hint" style="position: absolute; left: 300px; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.9); padding: 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+        <p style="margin: 0; font-size: 18px; color: #333;">點擊圖片查看更多可愛伊布！</p>
+      </div>
     </div>
     <p>我是伊布</p>
-    <p>我很愛玩。</p>
+    <p>我喜歡玩。</p>
     <button id="btn">來看看我去哪里玩</button>
     <img id="myImage" style="display: none; max-width: 100%; margin-top: 20px;">
   </div>
